@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Krishna Jha</title>
+<meta name="description" content="Krishna Jha. CS at Georgia Tech. ML systems and robot learning.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #2b2b2b;
+    --body: #555;
+    --muted: #8a8a8a;
+    --rule: #e6e6e6;
+    --link: #1f6f8b;
+    --thumb-bg: #f5f7f8;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 70px; }
+  body {
+    margin: 0;
+    background: #fff;
+    color: var(--body);
+    font-family: "Work Sans", "Helvetica Neue", Arial, sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 1.7;
+  }
+  a { color: var(--link); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  a:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; }
+  strong { font-weight: 600; color: var(--ink); }
+
+  /* nav */
+  nav {
+    position: sticky; top: 0; z-index: 10;
+    background: rgba(255,255,255,.96);
+    border-bottom: 1px solid var(--rule);
+  }
+  nav .inner {
+    max-width: 960px; margin: 0 auto; padding: 14px 24px;
+    display: flex; justify-content: space-between; align-items: center; gap: 16px;
+  }
+  nav ul { list-style: none; margin: 0; padding: 0; display: flex; gap: 26px; flex-wrap: wrap; }
+  nav ul a { color: var(--ink); font-weight: 400; font-size: 15px; }
+  nav .icons { display: flex; gap: 14px; }
+  nav .icons a { color: var(--muted); display: inline-flex; }
+  nav .icons a:hover { color: var(--ink); }
+  nav .icons svg { width: 20px; height: 20px; }
+
+  main { max-width: 960px; margin: 0 auto; padding: 0 24px 80px; }
+
+  /* header */
+  header.about { text-align: center; padding: 46px 0 24px; }
+  header h1 { margin: 0; color: var(--ink); font-weight: 400; font-size: 34px; letter-spacing: .5px; }
+  .role { margin: 6px 0 0; color: var(--ink); font-size: 17px; }
+  .affil { margin: 0; font-size: 16px; }
+  .email { margin: 8px 0 0; color: var(--muted); font-size: 15px; }
+  .statement {
+    max-width: 680px; margin: 34px auto 0; text-align: left;
+  }
+  .statement p { margin: 0 0 14px; }
+  .statement .lead { font-size: 18px; }
+
+  /* sections */
+  section { padding-top: 40px; }
+  section > h4 {
+    color: var(--ink); font-weight: 500; font-size: 22px;
+    margin: 0 0 6px; padding-bottom: 10px; border-bottom: 1px solid var(--rule);
+  }
+  .note { color: var(--muted); font-size: 15px; margin: 10px 0 0; }
+
+  .entry {
+    display: grid; grid-template-columns: 180px 1fr; gap: 28px;
+    padding: 26px 0; border-bottom: 1px solid var(--rule);
+  }
+  .entry:last-child { border-bottom: 0; }
+  .thumb {
+    width: 180px; height: 120px; background: var(--thumb-bg);
+    display: flex; align-items: center; justify-content: center;
+    color: #6b8794;
+  }
+  .thumb svg { width: 150px; height: 100px; }
+  .thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .thumb.fit { background: #fff; }
+  .thumb.fit img { object-fit: contain; }
+  .entry h5 { margin: 0; color: var(--ink); font-size: 17px; font-weight: 500; line-height: 1.45; }
+  .entry .meta { margin: 4px 0 0; font-size: 15px; color: var(--muted); }
+  .entry .tldr { margin: 8px 0 0; }
+  .entry .tldr b { font-weight: 500; color: var(--ink); }
+  .entry .links { margin: 8px 0 0; font-size: 15px; }
+  .entry .links a { margin-right: 8px; }
+  .venue { font-weight: 500; color: var(--ink); }
+
+  footer { text-align: center; color: var(--muted); font-size: 13px; padding: 30px 0 40px; border-top: 1px solid var(--rule); max-width: 960px; margin: 0 auto; }
+
+  @media (max-width: 640px) {
+    nav .inner { flex-direction: column; align-items: flex-start; }
+    nav ul { gap: 18px; }
+    .entry { grid-template-columns: 1fr; gap: 14px; }
+    .thumb { width: 100%; height: 130px; }
+    header h1 { font-size: 28px; }
+  }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="inner">
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#projects">Projects</a></li>
+    </ul>
+    <div class="icons">
+      <a href="https://github.com/krishnajha23" aria-label="GitHub">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.3.8-.6v-2c-3.2.7-3.9-1.5-3.9-1.5-.5-1.3-1.3-1.7-1.3-1.7-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.2 1.2a11 11 0 0 1 5.8 0c2.2-1.5 3.2-1.2 3.2-1.2.6 1.6.2 2.8.1 3.1.8.8 1.2 1.9 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg>
+      </a>
+      <a href="https://linkedin.com/in/kjha23" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.4 20.5h-3.6v-5.6c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9v5.7H9.3V9h3.4v1.6c.5-.9 1.6-1.8 3.4-1.8 3.6 0 4.3 2.4 4.3 5.5v6.2zM5.3 7.4a2.1 2.1 0 1 1 0-4.2 2.1 2.1 0 0 1 0 4.2zM7.1 20.5H3.5V9h3.6v11.5zM22.2 0H1.8C.8 0 0 .8 0 1.7v20.6c0 .9.8 1.7 1.8 1.7h20.4c1 0 1.8-.8 1.8-1.7V1.7C24 .8 23.2 0 22.2 0z"/></svg>
+      </a>
+    </div>
+  </div>
+</nav>
+
+<main>
+
+<header class="about" id="about">
+  <h1>Krishna Jha</h1>
+  <p class="role">B.S./M.S. Computer Science</p>
+  <p class="affil">Georgia Institute of Technology</p>
+  <p class="email">krishjhaxd at gmail dot com</p>
+
+  <div class="statement">
+    <p class="lead"><strong>I work at the intersection of machine learning systems, infrastructure, and robot learning.</strong></p>
+    <p>I'm a B.S./M.S. student in computer science at Georgia Tech, where I conduct research in the <a href="https://star-lab.cc.gatech.edu/">STAR Lab</a> with Prof. Harish Ravichandar. My research focuses on learning models of robot behavior for dexterous manipulation, including our <a href="https://arxiv.org/abs/2602.07413">CoRL 2026 paper</a> on Koopman-based visuo-motor planning.</p>
+    <p>Beyond research, I build systems that make AI useful in practice—from multimodal retrieval over aviation safety footage at Leidos to authorization infrastructure for tool-using AI agents at a stealth startup.</p>
+  </div>
+</header>
+
+<section id="experience">
+  <h4>Experience</h4>
+
+  <div class="entry">
+    <div class="thumb">
+      <svg viewBox="0 0 150 100" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
+        <rect x="14" y="20" width="44" height="32"/><rect x="22" y="28" width="44" height="32" fill="var(--thumb-bg)"/>
+        <rect x="30" y="36" width="44" height="32" fill="var(--thumb-bg)"/>
+        <rect x="40" y="44" width="14" height="14" stroke-dasharray="3 2"/>
+        <path d="M78 52 H96"/><path d="M92 48 L96 52 L92 56"/>
+        <circle cx="108" cy="30" r="4"/><circle cx="128" cy="40" r="4"/><circle cx="112" cy="62" r="4"/><circle cx="132" cy="72" r="4"/>
+        <path d="M111 33 L125 38"/><path d="M109 34 L111 58"/><path d="M115 64 L129 70"/><path d="M128 44 L114 59"/>
+      </svg>
+    </div>
+    <div>
+      <h5>Machine Learning Engineer Intern, Leidos</h5>
+      <p class="meta">May 2026 – Aug 2026</p>
+      <p class="tldr"><b>TL;DR:</b> Making large collections of aviation safety footage searchable, with evidence traceable to the original video.</p>
+      <p class="tldr">I developed a multimodal indexing and retrieval system that transforms raw footage into structured, searchable safety events. A C++ video-processing pipeline combines TensorRT-based detection and object tracking with Kafka ingestion, producing more than 100,000 detections across 10,000+ events. Retrieval integrates semantic search, knowledge-graph traversal, and reranking, with 500 ms p95 latency. For complex investigations, a vision-language agent queries four evidence sources concurrently and uses timeouts to avoid slow dependencies, producing grounded responses in approximately two seconds.</p>
+    </div>
+  </div>
+
+  <div class="entry">
+    <div class="thumb">
+      <svg viewBox="0 0 150 100" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
+        <circle cx="24" cy="50" r="10"/><path d="M34 50 H58"/>
+        <path d="M58 32 H86 V68 H58 Z"/><path d="M66 50 l5 5 l9 -11"/>
+        <path d="M86 50 H100"/><path d="M100 24 V76"/>
+        <path d="M100 24 H112"/><path d="M100 42 H112"/><path d="M100 58 H112"/><path d="M100 76 H112"/>
+        <rect x="112" y="18" width="20" height="12"/><rect x="112" y="36" width="20" height="12"/>
+        <rect x="112" y="52" width="20" height="12"/><rect x="112" y="70" width="20" height="12"/>
+      </svg>
+    </div>
+    <div>
+      <h5>Software Engineer, Stealth Startup</h5>
+      <p class="meta">Aug 2025 – Mar 2026</p>
+      <p class="tldr"><b>TL;DR:</b> Building the authorization layer that lets AI agents use powerful tools without bypassing security controls.</p>
+      <p class="tldr">I built a TypeScript-based agent control plane using Google ADK and MCP to orchestrate eight remote tools with scoped permissions, human approval workflows, and auditable execution. I also developed an identity and authorization model spanning users, services, and autonomous agents, enforcing least-privilege access based on role, data sensitivity, and execution context. Automated policy evaluation reduced manual analyst review by 40%, while sensitive operations were checked against more than 25 rules in approximately 50 ms.</p>
+    </div>
+  </div>
+
+  <div class="entry">
+    <div class="thumb"><img src="images/star-robot.jpg" alt="Franka arm executing a real-world manipulation task with K-UBM" loading="lazy"></div>
+    <div>
+      <h5>Undergraduate Researcher, STAR Lab</h5>
+      <p class="meta">Jan 2025 – present</p>
+      <p class="tldr"><b>TL;DR:</b> Learning dexterous robot behaviors directly from visual observations, with 85% success across four real-world tasks.</p>
+      <p class="tldr">My work focuses on learning compact representations of visual observations and modeling how robot-object interactions evolve over time. The pipeline uses SAM3 for object segmentation, an autoencoder for visual-state encoding, and a Koopman model to predict latent dynamics for control. I also developed the supporting data and evaluation infrastructure, processing more than 200 expert demonstrations with parallel Kubernetes workflows and HDF5 datasets stored on Google Cloud Storage.</p>
+    </div>
+  </div>
+</section>
+
+<section id="research">
+  <h4>Research</h4>
+
+  <div class="entry">
+    <div class="thumb fit"><img src="images/k-ubm.png" alt="Unified Behavioral Models diagram: visual and proprioceptive initialization feed a latent dynamical model that rolls out visual-feature flow and action flow, with a replanning trigger." loading="lazy"></div>
+    <div>
+      <h5>Going with the Flow: Koopman Behavioral Models as Pseudo Planners for Visuo-Motor Dexterity</h5>
+      <p class="meta">Yunhai Han, Jiaqi Fu*, Linhao Bai*, Ziyu Xiao*, Zhaodong Yang, Yogita Choudhary, <strong>Krishna Jha</strong>, Chuizheng Kong, Shreyas Kousik, Harish Ravichandar<br>(* equal contribution)</p>
+      <p class="tldr"><b>TL;DR:</b> Learning full-horizon manipulation behaviors while retaining the ability to replan when observations diverge from predictions.</p>
+      <p class="tldr">Many visuomotor policies generate actions in short segments, requiring frequent replanning and potentially disrupting smooth execution. K-UBM instead models the evolution of robot states and visual features jointly, using linear dynamics in a learned latent space to predict an extended behavior trajectory and its expected visual evolution. Discrepancies between predicted and observed visual features trigger replanning when needed. The approach matches or outperforms leading baselines across seven simulated and four real-world manipulation tasks.</p>
+      <p class="links"><span class="venue">CoRL 2026</span> &nbsp;[<a href="https://arxiv.org/abs/2602.07413">arXiv</a>] [<a href="https://arxiv.org/pdf/2602.07413">pdf</a>] [<a href="https://k-ubm.github.io/">website</a>] [<a href="https://github.com/GT-STAR-Lab/K-UBM">code</a>]</p>
+    </div>
+  </div>
+
+  <div class="entry">
+    <div class="thumb fit"><img src="images/lucid.png" alt="LUCiD overview: a probe on a middle layer produces a premature distribution, scaled by a learned gate and subtracted from the final-layer distribution." loading="lazy"></div>
+    <div>
+      <h5>LUCiD: Mitigating Hallucinations in Large Language Models with Learned Unilayer Contrastive Decoding</h5>
+      <!-- TODO: author list in paper order, with your name in <strong>. -->
+      <p class="tldr"><b>TL;DR:</b> Reducing language-model hallucinations by learning both the contrastive signal and how strongly to apply it at each token.</p>
+      <p class="tldr">LUCiD extends contrastive decoding by replacing a fixed, untrained intermediate-layer signal with a learned residual probe and an adaptive, token-level gate. The probe estimates a contrasting token distribution, while the gate controls its contribution to decoding—all without updating the backbone language model. Evaluated on five models ranging from 0.6B to 12B parameters, the method achieves the highest SQuAD F1 on four, including an improvement from 0.711 to 0.815 on LLaMA-3-8B under greedy decoding, with approximately 5–10% inference overhead.</p>
+      <p class="links"><span class="venue">Under review</span> &nbsp;[<a href="papers/lucid.pdf">pdf</a>]</p>
+    </div>
+  </div>
+
+
+</section>
+
+<section id="projects">
+  <h4>Projects</h4>
+  
+  <div class="entry">
+    <div class="thumb">
+      <svg viewBox="0 0 150 100" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true">
+        <path d="M30 30 L62 22 L96 36 L124 26"/><path d="M30 30 L44 68 L62 22"/><path d="M44 68 L82 74 L96 36"/>
+        <path d="M82 74 L118 66 L124 26"/><path d="M96 36 L118 66"/>
+        <circle cx="30" cy="30" r="5" fill="var(--thumb-bg)"/><circle cx="62" cy="22" r="5" fill="currentColor"/>
+        <circle cx="96" cy="36" r="5" fill="var(--thumb-bg)"/><circle cx="124" cy="26" r="5" fill="currentColor"/>
+        <circle cx="44" cy="68" r="5" fill="currentColor"/><circle cx="82" cy="74" r="5" fill="var(--thumb-bg)"/>
+        <circle cx="118" cy="66" r="5" fill="var(--thumb-bg)"/>
+      </svg>
+    </div>
+    <div>
+      <h5>Financial Graph Feature Store</h5>
+      <p class="meta">Go, TensorFlow, TFLite, PyTorch Geometric, Raft, Kafka, PostgreSQL, OpenSearch, Android</p>
+      <p class="tldr"><b>TL;DR:</b> Combining graph-based risk modeling with a fault-tolerant feature store and low-latency retrieval.</p>
+      <p class="tldr">I built a heterogeneous graph neural network to identify compliance risk across more than 45,000 companies and executives, improving F1 by 12% over an XGBoost baseline. To support ingestion and serving, I implemented a distributed feature store in Go with Raft-based replication, write-ahead logging, Kafka ingestion, and mTLS-secured gRPC, then tested its recovery behavior under node failures. A two-tower retrieval model pairs server-side search with an INT8-quantized query encoder that runs on Android in under 10 ms.</p>
+      <p class="links">[<a href="https://github.com/krishnajha23/financial-feature-store">code</a>]</p>
+    </div>
+  </div>
+
+  <div class="entry">
+    <div class="thumb">
+      <svg viewBox="0 0 150 100" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true">
+        <rect x="14" y="20" width="16" height="10" fill="currentColor"/><rect x="32" y="20" width="16" height="10" fill="currentColor"/><rect x="50" y="20" width="16" height="10"/>
+        <rect x="14" y="36" width="16" height="10" fill="currentColor"/><rect x="32" y="36" width="16" height="10"/>
+        <rect x="14" y="52" width="16" height="10" fill="currentColor"/><rect x="32" y="52" width="16" height="10" fill="currentColor"/><rect x="50" y="52" width="16" height="10" fill="currentColor"/><rect x="68" y="52" width="16" height="10"/>
+        <rect x="14" y="68" width="16" height="10"/>
+        <path d="M94 50 H108"/><path d="M104 46 L108 50 L104 54"/>
+        <rect x="114" y="28" width="24" height="44"/><path d="M114 42 H138"/><path d="M114 56 H138"/>
+      </svg>
+    </div>
+    <div>
+      <h5>LLM Inference Server</h5>
+      <p class="meta">Python, C++, CUDA, JAX, Pallas, pybind11, FastAPI, PyTorch, vLLM, Redis, HNSW, AWS</p>
+      <p class="tldr"><b>TL;DR:</b> Exploring the systems techniques that make language-model inference faster and more predictable across accelerators.</p>
+      <p class="tldr">I developed an inference server spanning GPU and TPU backends, with optimizations for scheduling, memory use, and attention computation. The GPU path combines continuous batching, INT8 quantization, fused attention, CUDA Graphs, and a C++ KV-cache manager exposed through pybind11; speculative decoding with four draft tokens improves throughput by 1.59×. For TPUs, a tiled attention kernel written in JAX Pallas achieves a 1.52× speedup at batch size 4 and sequence length 2,048. The serving layer also includes semantic caching, admission control, prompt-injection filtering, and AWS deployment with load testing.</p>
+      <p class="links">[<a href="https://github.com/krishnajha23/LLMInferenceServer">code</a>]</p>
+    </div>
+  </div>
+
+  <div class="entry">
+    <div class="thumb">
+      <svg viewBox="0 0 150 100" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true">
+        <circle cx="75" cy="50" r="32" stroke-dasharray="4 3"/>
+        <rect x="68" y="11" width="14" height="14" fill="var(--thumb-bg)"/><rect x="100" y="43" width="14" height="14" fill="var(--thumb-bg)"/>
+        <rect x="68" y="75" width="14" height="14" fill="var(--thumb-bg)"/><rect x="36" y="43" width="14" height="14" fill="var(--thumb-bg)"/>
+        <rect x="91" y="20" width="12" height="12" fill="currentColor" transform="rotate(45 97 26)"/>
+        <rect x="47" y="68" width="12" height="12" fill="currentColor" transform="rotate(45 53 74)"/>
+      </svg>
+    </div>
+    <div>
+      <h5>Distributed Training Benchmark</h5>
+      <p class="meta">PyTorch, FSDP, JAX, pjit, XLA, C++, CUDA, NCCL, GCP, GCS</p>
+      <p class="tldr"><b>TL;DR:</b> Benchmarking how architecture and workload shape the performance of distributed GPU and TPU training.</p>
+      <p class="tldr">I compared distributed training implementations for GPT-2 and a retrieval model using PyTorch FSDP on GPU clusters and JAX pjit on TPU pods. The TPU configuration delivered a 2.9× speedup for GPT-2 but only a 1.2× gain for the retrieval workload, illustrating how model structure affects accelerator efficiency. The benchmark also incorporates custom CUDA implementations of ring AllReduce and RMSNorm, checkpoint recovery through Google Cloud Storage, and per-process data sharding to reduce storage contention.</p>
+      <p class="links">[<a href="https://github.com/krishnajha23/DistributedTrainingBenchmark">code</a>]</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>Krishna Jha &nbsp;|&nbsp; Atlanta, GA</footer>
+
+</body>
+</html>
